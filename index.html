@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            font-style: normal;
+            line-height: 1.4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+        
+        .content {
+            max-width: 520px;
+            margin: 0 auto 0 18%;
+            padding: 200px 100px;
+        }
+        
+        h1 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1.4rem;
+            color: rgb(115, 115, 115);
+            
+        }
+        
+        a {
+            color: #0c7b93;
+            text-decoration: none;
+            font-weight: 500;
+            text-decoration: underline;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+            opacity: 0.8;
+        }
+        
+        /* Button styling for work link */
+        .button {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        
+        .button:hover {
+            text-decoration: none;
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        
+        .bg-green-100 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(220 252 231 / var(--tw-bg-opacity));
+        }
+        
+        .text-neutral-900 {
+            --tw-text-opacity: 1;
+            color: rgb(23 23 23 / var(--tw-text-opacity));
+        }
+        
+        /* Icons container styling */
+        .icons-container {
+            margin-top: 20px;
+        }
+        
+        .social-icons, .coding-icons {
+            display: flex;
+            margin-top: 15px;
+            gap: 15px;
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            pointer-events: none;
+            /* Replace transition with animation properties */
+        }
+        
+        .social-icons.active, .coding-icons.active {
+            opacity: 1;
+            height: auto;
+            pointer-events: auto;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+        
+        /* Vertical fade in (from top to bottom) */
+@keyframes fadeInVertical {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Vertical fade out (to bottom) */
+@keyframes fadeOutVertical {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+.social-icons.active, .coding-icons.active {
+    animation: fadeInVertical 0.5s ease-in-out forwards;
+}
+
+.fade-out {
+    animation: fadeOutVertical 0.5s ease-in-out forwards;
+}
+
+        
+        /* Individual icon styling */
+        .social-icon, .coding-icon {
+            width: 40px; /* Uniform size */
+            height: 40px; /* Uniform size */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f5f5f5;
+            border-radius: 50%;
+            opacity: 0;
+            /* Add animation properties here */
+        }
+        
+        .social-icons.active .social-icon, .coding-icons.active .coding-icon {
+            animation: fadeIconIn 0.4s ease-in-out forwards;
+        }
+        
+        /* Staggered fade in animation for icons */
+        @keyframes fadeIconIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+        /* Set delay for each icon */
+        .social-icons.active .social-icon:nth-child(1), .coding-icons.active .coding-icon:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+        
+        .social-icons.active .social-icon:nth-child(2), .coding-icons.active .coding-icon:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .social-icons.active .social-icon:nth-child(3), .coding-icons.active .coding-icon:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+        
+        .social-icons.active .social-icon:nth-child(4), .coding-icons.active .coding-icon:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+        
+        .social-icon:hover, .coding-icon:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-3px) scale(1.1); /* Enhanced hover effect */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow on hover */
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        /* Icon image styling */
+        .social-icon img, .coding-icon img {
+            width: 22px; /* Uniform size for images */
+            height: 22px; /* Uniform size for images */
+            object-fit: contain; /* Maintain aspect ratio */
+        }
+        
+        @media (max-width: 1200px) {
+            .content {
+                margin: 0 auto 0 15%;
+                padding: 150px 50px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                margin: 0 auto;
+                padding: 80px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>sreedweep sharma</h1>
+        
+        <p>I am an AI Developer from Hyderabad, India.</p>
+        
+        <p>Currently pursuing Bachlors from <a href="#" class="text-neutral-900">SNIST</a>, in Computer Science Engineering.</p>
+        
+        <p>I'm passionate about <a href="#" id="coding-link" class="button bg-green-100 text-neutral-900">competitive programming</a>, building intelligent systems, and solving problems.</p>
+        
+        <p>Take a look at some of my <a href="work.html" class="button bg-green-100 text-neutral-900">work</a>, know my <a href="#blog" class="text-neutral-900">hobbies</a> or feel free to <a href="#" id="contact-link" class="text-neutral-900">get in touch</a>.</p>
+        
+        <div class="icons-container">
+            <div class="coding-icons" id="coding-icons">
+                <a href="https://leetcode.com/sasukeurahara" target="_blank" class="coding-icon" title="LeetCode">
+                    <img src="img/leetcode.svg" alt="LeetCode">
+                </a>
+                <a href="https://www.codechef.com/users/sasukeurahara" target="_blank" class="coding-icon" title="CodeChef">
+                    <img src="img/codechef.svg" alt="CodeChef">
+                </a>
+                <a href="https://codeforces.com/profile/sasukeurahara" target="_blank" class="coding-icon" title="CodeForces">
+                    <img src="img/codeforces.svg" alt="CodeForces">
+                </a>
+            </div>
+        </div>
+        
+        <div class="social-icons" id="social-icons">
+            <a href="https://github.com/sasukeurahara" target="_blank" class="social-icon" title="GitHub">
+                <img src="img/github.svg" alt="GitHub">
+            </a>
+            <a href="https://linkedin.com/in/sreedweep" target="_blank" class="social-icon" title="LinkedIn">
+                <img src="img/linkedin.svg" alt="LinkedIn">
+            </a>
+            <a href="https://twitter.com/urahara_sasuke" target="_blank" class="social-icon" title="Twitter/X">
+                <img src="img/x.svg" alt="Twitter/X">
+            </a>
+            <a href="mailto:sreedweepsharma2407@gmail.com" class="social-icon" title="Email">
+                <img src="img/mail.svg" alt="Email">
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced fade animation for contact icons
+        document.getElementById('contact-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            const socialIcons = document.getElementById('social-icons');
+            
+            if (socialIcons.classList.contains('active')) {
+                // Fade out
+                socialIcons.classList.add('fade-out');
+                setTimeout(() => {
+                    socialIcons.classList.remove('active');
+                    socialIcons.classList.remove('fade-out');
+                }, 500); // Match with animation duration
+            } else {
+                // Fade in
+                socialIcons.classList.add('active');
+            }
+            
+            // Auto-hide after 10 seconds if user doesn't interact
+            if (socialIcons.classList.contains('active')) {
+                setTimeout(() => {
+                    if (!document.querySelector('.social-icon:hover') && socialIcons.classList.contains('active')) {
+                        socialIcons.classList.add('fade-out');
+                        setTimeout(() => {
+                            socialIcons.classList.remove('active');
+                            socialIcons.classList.remove('fade-out');
+                        }, 500);
+                    }
+                }, 10000);
+            }
+        });
+        
+        // Enhanced fade animation for coding icons
+        document.getElementById('coding-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            const codingIcons = document.getElementById('coding-icons');
+            
+            if (codingIcons.classList.contains('active')) {
+                // Fade out
+                codingIcons.classList.add('fade-out');
+                setTimeout(() => {
+                    codingIcons.classList.remove('active');
+                    codingIcons.classList.remove('fade-out');
+                }, 500); // Match with animation duration
+            } else {
+                // Fade in
+                codingIcons.classList.add('active');
+            }
+            
+            // Auto-hide after 10 seconds if user doesn't interact
+            if (codingIcons.classList.contains('active')) {
+                setTimeout(() => {
+                    if (!document.querySelector('.coding-icon:hover') && codingIcons.classList.contains('active')) {
+                        codingIcons.classList.add('fade-out');
+                        setTimeout(() => {
+                            codingIcons.classList.remove('active');
+                            codingIcons.classList.remove('fade-out');
+                        }, 500);
+                    }
+                }, 10000);
+            }
+        });
+    </script>
+</body>
+</html>
