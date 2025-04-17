@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sreedweep Sharma - Work</title>
+  <link rel="icon" href="img/kalm.png" type="image/x-icon" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-style: normal;
+      line-height: 1.4;
+      color: #333;
+      background-color: #fff;
+    }
+
+    .content {
+      max-width: 520px;
+      margin: 0 auto 0 18%;
+      padding: 155px 100px;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+
+    p {
+      margin-bottom: 1.3rem;
+      color: rgb(115, 115, 115);
+    }
+
+    a {
+      color: #0c7b93;
+      text-decoration: none;
+      font-weight: 500;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      opacity: 0.8;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1.3rem;
+      color: rgb(115, 115, 115);
+      cursor: pointer;
+    }
+
+    .project {
+      margin-bottom: 1.3rem;
+      padding-bottom: 1.3rem;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .project:last-child {
+      border-bottom: none;
+    }
+
+    .project-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    .github-icon {
+      width: 20px;
+      height: 20px;
+      opacity: 0.7;
+      transition: opacity 0.2s ease;
+    }
+
+    .github-icon:hover {
+      opacity: 1;
+    }
+
+    .project-description {
+      color: rgb(115, 115, 115);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    @media (max-width: 1200px) {
+      .content {
+        margin: 0 auto 0 15%;
+        padding: 150px 50px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        margin: 0 auto;
+        padding: 80px 24px;
+      }
+    }
+
+    /* Loader Overlay */
+    #loader-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: white;
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    #loader-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <a class="back-link" onclick="goBack()">← back</a>
+
+    <h1>work*</h1>
+
+    <p>A curated list of recent and not so recent projects.</p>
+
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">Oxygenie</div>
+        <a href="https://github.com/sasukeurahara/oxygenie" target="_blank" title="GitHub Repository">
+          <img src="img/github.svg" alt="GitHub" class="github-icon" />
+        </a>
+      </div>
+      <p class="project-description">Mac app to check air quality at your current location</p>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">Calendar of Wisdom</div>
+        <a href="https://github.com/sasukeurahara/calendar-of-wisdom" target="_blank" title="GitHub Repository">
+          <img src="img/github.svg" alt="GitHub" class="github-icon" />
+        </a>
+      </div>
+      <p class="project-description">Daily insight and reflections from A Calendar of Wisdom</p>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">Goggins Blocker</div>
+        <a href="https://github.com/sasukeurahara/goggins-blocker" target="_blank" title="GitHub Repository">
+          <img src="img/github.svg" alt="GitHub" class="github-icon" />
+        </a>
+      </div>
+      <p class="project-description">Goggins inspired content blocking Chrome Extension</p>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">Day by Day</div>
+        <a href="https://github.com/sasukeurahara/day-by-day" target="_blank" title="GitHub Repository">
+          <img src="img/github.svg" alt="GitHub" class="github-icon" />
+        </a>
+      </div>
+      <p class="project-description">A day by day visualisation of my life</p>
+    </div>
+  </div>
+
+  <div id="loader-overlay">
+    <img src="gif/loader.gif" alt="Loading..." />
+  </div>
+
+  <script>
+    function goBack() {
+      const loader = document.getElementById('loader-overlay');
+      loader.classList.add('active');
+      void loader.offsetWidth; // force reflow
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 1500);
+    }
+  </script>
+</body>
+</html>
